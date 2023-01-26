@@ -120,6 +120,9 @@ export default {
       }
     }
   },
+  mounted() {
+    localStorage.setItem('snakeScore', 0);
+  },
 
 
 }

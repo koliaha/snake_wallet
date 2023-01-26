@@ -4,7 +4,7 @@
         <form v-else class="form_wrapper" @submit.prevent="send">
             <input class="form_input" v-model="wallet_input" type="text" placeholder="0x000000000000000000000000000000"
                 required>
-            <button  class="form_btn" type="submit">
+            <button class="form_btn" type="submit">
                 <img src="../assets/send.svg" alt="send">
             </button>
         </form>
@@ -22,20 +22,34 @@ export default {
     },
     methods: {
         async send() {
-            const walldata = {
-                wallet: this.wallet_input
-            }
-            const data = JSON.stringify(walldata);
+            const score = localStorage.getItem("snakeScore") ?? 0
             const res = await fetch(this.url, {
                 method: "POST",
                 // mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: data,
+                body: JSON.stringify({
+                    data: [
+                        {
+                            'data': this.formatDate(new Date()),
+                            'wallet': this.wallet_input,
+                            'count': score || 0
+                        }
+                    ]
+                }),
             });
             this.isSended = res.ok
             console.log('res', res);
+        },
+        formatDate(date) {
+            var dd = date.getDate();
+            if (dd < 10) dd = '0' + dd;
+            var mm = date.getMonth() + 1;
+            if (mm < 10) mm = '0' + mm;
+            var yy = date.getFullYear() % 100;
+            if (yy < 10) yy = '0' + yy;
+            return dd + '.' + mm + '.' + yy;
         }
     },
 
