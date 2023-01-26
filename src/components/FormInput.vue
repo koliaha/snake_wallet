@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             wallet_input: '',
-            url: "https://script.google.com/macros/s/AKfycbwsxpn44AiO2RmRzsTETjI2fE94aaWTcDxxlU1ZwT4InsxMaWOjJFMwAQiBpHflrqkglQ/exec"
+            url: "https://script.google.com/macros/s/AKfycbyp_8rHC25AVISZr4PS387mMdeXPuchJ6ym48aVU5Nc4UsNbc-7vTzq35dTwHU-UhoGAw/exec"
         }
     },
     methods: {

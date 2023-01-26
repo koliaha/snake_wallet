@@ -25,7 +25,10 @@ export default {
 }
 </script>
 <style>
-.controller {}
+.controller {
+    display: none;
+    margin-top: 20px;
+}
 
 .control-item {
     max-width: 215px;
@@ -44,5 +47,11 @@ export default {
     background: none;
     border: none;
     outline: none;
+}
+
+@media screen and (max-width: 700px) {
+    .controller {
+        display: block;
+    }
 }
 </style>

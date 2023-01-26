@@ -6,7 +6,7 @@
         <img style="margin-bottom:20px" width="60%" src="../assets/score.svg" alt="">
         <div class="score_counter" id="score_value">
           <img class="score_counter_item" src="../assets/0.svg">
-          <img class="score_counter_item"  src="../assets/0.svg">
+          <img class="score_counter_item" src="../assets/0.svg">
         </div>
 
       </div>
@@ -93,8 +93,10 @@
       <img class="settings_item" id="newgame_menu" src="../assets/new-game.svg">
       <img class="settings_item" src="../assets/setings.svg" id="setting_menu">
     </div>
-   <ControlBtn/>
-  </div>
+    <div id="contoller">
+      <ControlBtn />
+    </div>
+    </div>
 </template>
 
 <script>
@@ -102,7 +104,7 @@ import FormInput from "./FormInput.vue";
 import ControlBtn from "./ControlBtn.vue";
 export default {
   name: 'GameCard',
-  components: { FormInput,ControlBtn },
+  components: { FormInput, ControlBtn },
   props: {
     msg: String
   },
@@ -282,7 +284,8 @@ h1 {
 /* Game Over Screen Style */
 
 #gameover {
-  display: none;
+  /* display: none; */
+  display: block;
   max-width: 340px;
   width: 100%;
   /* padding-top: 95px; */
@@ -394,16 +397,26 @@ h1 {
 .setting_header img {
   width: 100%;
 }
-.score_counter{
+
+.score_counter {
   display: flex;
   margin-bottom: 20px;
 }
-.score_counter_item{
+
+.score_counter_item {
   height: 30px;
   margin: 0 2px;
 }
+#contoller{
+  display: none;
+}
+@media screen and (max-width: 700px) {
+   #snake{
+    width: 250px;
+   }
+}
 @media screen and (max-width: 450px) {
-  .setting_sets{
+  .setting_sets {
     flex-direction: column;
   }
 }

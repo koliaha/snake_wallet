@@ -40,6 +40,7 @@
           // HTML Elements
           var screen_snake;
           var screen_menu;
+          var controller_btn;
           var screen_setting;
           var screen_gameover;
           var button_newgame_menu;
@@ -258,26 +259,30 @@
           // 3 for the game over screen
           var showScreen = function(screen_opt){
               switch(screen_opt){
-                      
+                
                   case 0:  screen_snake.style.display = "block";
+                           controller_btn.style.display = "block";
                            screen_menu.style.display = "none";
                            screen_setting.style.display = "none";
                            screen_gameover.style.display = "none";
                            break;
                       
                   case 1:  screen_snake.style.display = "none";
+                           controller_btn.style.display = "none";
                            screen_menu.style.display = "block";
                            screen_setting.style.display = "none";
                            screen_gameover.style.display = "none";
                            break;
                       
                   case 2:  screen_snake.style.display = "none";
+                           controller_btn.style.display = "none";
                            screen_menu.style.display = "none";
                            screen_setting.style.display = "block";
                            screen_gameover.style.display = "none";
                            break;
                       
                   case 3: screen_snake.style.display = "none";
+                          controller_btn.style.display = "none";
                           screen_menu.style.display = "none";
                           screen_setting.style.display = "none";
                           screen_gameover.style.display = "block";
@@ -297,6 +302,7 @@
                   screen_menu = document.getElementById("menu");
                   screen_gameover = document.getElementById("gameover");
                   screen_setting = document.getElementById("setting");
+                  controller_btn = document.getElementById("contoller");
               
                   // Buttons
                   button_newgame_menu = document.getElementById("newgame_menu");
