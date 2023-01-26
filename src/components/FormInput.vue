@@ -1,11 +1,14 @@
 <template>
-    <form class="form_wrapper" @submit.prevent="send">
-        <input class="form_input" v-model="wallet_input" type="text" placeholder="0x000000000000000000000000000000"
-            required>
-        <button class="form_btn" type="submit">
-            <img src="../assets/send.svg" alt="send">
-        </button>
-    </form>
+    <div>
+        <div v-if="isSended">Success </div>
+        <form v-else class="form_wrapper" @submit.prevent="send">
+            <input class="form_input" v-model="wallet_input" type="text" placeholder="0x000000000000000000000000000000"
+                required>
+            <button  class="form_btn" type="submit">
+                <img src="../assets/send.svg" alt="send">
+            </button>
+        </form>
+    </div>
 </template>
 <script>
 export default {
@@ -13,7 +16,8 @@ export default {
     data() {
         return {
             wallet_input: '',
-            url: "https://script.google.com/macros/s/AKfycbyp_8rHC25AVISZr4PS387mMdeXPuchJ6ym48aVU5Nc4UsNbc-7vTzq35dTwHU-UhoGAw/exec"
+            url: "https://sheetdb.io/api/v1/xdjeo5uo03fpw",
+            isSended: false
         }
     },
     methods: {
@@ -24,13 +28,14 @@ export default {
             const data = JSON.stringify(walldata);
             const res = await fetch(this.url, {
                 method: "POST",
-                mode: "no-cors",
+                // mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: data,
             });
-            console.log('res',res);
+            this.isSended = res.ok
+            console.log('res', res);
         }
     },
 

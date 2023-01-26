@@ -284,8 +284,8 @@ h1 {
 /* Game Over Screen Style */
 
 #gameover {
-  /* display: none; */
-  display: block;
+  display: none;
+  /* display: block; */
   max-width: 340px;
   width: 100%;
   /* padding-top: 95px; */
